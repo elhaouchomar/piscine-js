@@ -1,8 +1,8 @@
-// function words(str, sep) {
-//     return str.split(sep)
+// function words(str) {
+//     return str.split(" ")
 // }
-// function sentence(arr, join) {
-//     return arr.join(join)
+// function sentence(arr) {
+//     return arr.join(" ")
 // }
 // function yell(str) {
 //     return str.toUpperCase()
