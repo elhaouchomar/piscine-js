@@ -29,8 +29,9 @@
 
 
 function dogYears(namePlanet, ageSecond) {
+    ageSecond *= 7;
+    const secondsInYear = 31_557_600;
 
-    ageSecond *= 7
     const planet = {
         earth: 1,
         mercury: 0.2408467,
@@ -45,11 +46,10 @@ function dogYears(namePlanet, ageSecond) {
     const newAge = planet[namePlanet];
 
     if (newAge) {
-        return +((ageSecond * newAge) / 31_557_600).toFixed(2);
-    } else {
-        return
+        return +((ageSecond / secondsInYear) / newAge).toFixed(2);
     }
+    return undefined;
 }
 
-console.log(dogYears("earth", 1000000000));
-console.log(dogYears("mercury", 2134835688));
+console.log(dogYears("earth", 1000000000)); 
+console.log(dogYears("mercury", 2134835688)); 
