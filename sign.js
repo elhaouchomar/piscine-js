@@ -17,4 +17,4 @@ function sameSign(a, b) {
 // console.log(sameSign(-5, -5))
 // console.log(sameSign(5, 5))
 // console.log(sameSign(-231, 0))
-console.log(sameSign(0,0))
+// console.log(sameSign(0,0))
