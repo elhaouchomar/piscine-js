@@ -14,5 +14,5 @@ function set(key, newValue) {
     return newValue
 }
 
-console.log(get("num"))
-console.log(set("num", 54))
+// console.log(get("num"))
+// console.log(set("num", 54))
