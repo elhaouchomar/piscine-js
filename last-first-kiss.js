@@ -7,9 +7,9 @@ function last(arr) {
 }
 
 function kiss(arr) {
-    return [arr[0],arr[arr.length-1]]
+    return [arr[arr.length-1],arr[0]]
 }
 
-// console.log(first("omar"))
-// console.log(last("omar"))
-// console.log(kiss("omar"))
+console.log(first("omar"))
+console.log(last("omar"))
+console.log(kiss("omar"))
