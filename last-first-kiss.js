@@ -10,6 +10,6 @@ function kiss(arr) {
     return [arr[arr.length-1],arr[0]]
 }
 
-console.log(first("omar"))
-console.log(last("omar"))
-console.log(kiss("omar"))
+// console.log(first("omar"))
+// console.log(last("omar"))
+// console.log(kiss("omar"))
