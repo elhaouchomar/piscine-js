@@ -6,7 +6,7 @@ function getAcceleration(info) {
     } else if (isNumber(info.Δv) && isNumber(info.Δt)) {
         return info.Δv / info.Δt
     } else if (isNumber(info.d) && isNumber(info.t)) {
-        return 2*info.d / info.t * info.t
+        return (2*info.d) / (info.t * info.t)
     }
     return "impossible"
 }
