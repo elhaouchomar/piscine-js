@@ -18,6 +18,7 @@
 const arrToSet = (arr) => new Set(arr)
 const arrToStr = (arr) => arr.join('')
 const setToArr = (set) => Array.from(set)
+const setToStr = (set) => Array.from(set).join('')
 const strToArr = (str) => Array.from(str)
 const strToSet = (str) => new Set(str)
 const mapToObj = (map) =>  Object.fromEntries(map)
@@ -33,6 +34,10 @@ const strToObj = (str) => Object.fromEntries(str.split(',').map(key => key.split
 // console.log(arrToStr(arr))
 // console.log(setToArr(set))
 // console.log(set)
+// const mySet = new Set([1, 2, 3]);
+// const result = setToStr(mySet);
+// console.log(result);
+
 // console.log(strToArr(str))
 // console.log(strToSet(str))
 // console.log(mapToObj(map))
