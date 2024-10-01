@@ -28,8 +28,10 @@ const arrToObj = (arr) => arr.reduce((key, value, index) => {
     key[index] = value
     return key
 }, {})
-const strToObj = (str) => Object.fromEntries(str.split(',').map(key => key.split(':')))
-
+const strToObj = (str) => Array.from(str).reduce((key, value, index) => {
+      key[index] = value
+      return key
+    }, {})
 // console.log(arrToSet(arr))
 // console.log(arrToStr(arr))
 // console.log(setToArr(set))
@@ -44,4 +46,4 @@ const strToObj = (str) => Object.fromEntries(str.split(',').map(key => key.split
 // console.log(objToArr(obj))
 // console.log(objToMap(obj))
 // console.log(arrToObj(arr))
-// console.log(strToObj(str))
+// console.log(strToObj('omar'))
