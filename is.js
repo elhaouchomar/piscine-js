@@ -20,7 +20,7 @@ is.arr = function(v) {
     return Array.isArray(v)
 },
 is.obj = function(v) {
-    return v != null && v === 'object' && v !== Array.isArray(v)
+    return v !== null && v === 'object' && !Array.isArray(v)
 },
 is.func = function(v) {
     return typeof v === 'function'
