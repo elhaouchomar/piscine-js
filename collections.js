@@ -32,13 +32,42 @@ const strToObj = (str) => Array.from(str).reduce((key, value, index) => {
       key[index] = value
       return key
     }, {})
+
+    const superTypeOf = (value) => {
+        if (value instanceof Map) return 'Map'
+        if (value instanceof Set) return 'Set'
+        if (Array.isArray(value)) return 'Array'
+        if (value === null) return 'null'
+        if (value === undefined) return 'undefined' 
+        if (typeof value === 'function') return 'Function'
+        if (typeof value === 'string') return 'String' 
+        if (typeof value === 'number') return 'Number'
+        return 'Object'
+    }
+    
+    
+    console.log(superTypeOf(new Map()))   
+    console.log(superTypeOf(new Set()))   
+    console.log(superTypeOf({}))          
+    console.log(superTypeOf("hello"))     
+    console.log(superTypeOf(666))         
+    console.log(superTypeOf(NaN))         
+    console.log(superTypeOf([]))          
+    console.log(superTypeOf(null))        
+    console.log(superTypeOf(undefined))   
+    console.log(superTypeOf(superTypeOf)) 
+    
+
+
+
+
 // console.log(arrToSet(arr))
 // console.log(arrToStr(arr))
 // console.log(setToArr(set))
 // console.log(set)
-// const mySet = new Set([1, 2, 3]);
-// const result = setToStr(mySet);
-// console.log(result);
+// const mySet = new Set([1, 2, 3])
+// const result = setToStr(mySet)
+// console.log(result)
 
 // console.log(strToArr(str))
 // console.log(strToSet(str))
