@@ -72,11 +72,12 @@ function modulo(a, b) {
         isNeg = !isNeg
         b = -b
     }
-
-    for (let i = a; i >= b; i -= b) {
-        result = i
+    
+    let i = a
+    while (i >= b) {
+        i -= b
     }
-    result -= b
+    result = i
 
     if (!isNeg) {
         result = -result
@@ -87,4 +88,4 @@ function modulo(a, b) {
 
 console.log(multiply(34, 78))
 console.log(divide(34, 78))
-console.log(modulo(13, -2))
+console.log(modulo(34, 78))
