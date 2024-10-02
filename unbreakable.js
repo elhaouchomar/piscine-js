@@ -3,7 +3,7 @@ function split(str, sep) {
     let current = ''
     for (let i = 0; i < str.length; i++) {
         if(str.slice(i, i + sep.length) === sep) {
-            result.push(current)
+            result[result.length] = current
             current = ''
             i += sep.length - 1
         } else {
@@ -25,5 +25,5 @@ function join(arr, sep) {
     return result
 }
 
-// console.log(split('o m a r', ' '))
-// console.log(join([ 'o', 'm', 'a', 'r' ], ''))
+console.log(split('o m a r', ' '))
+console.log(join([ 'o', 'm', 'a', 'r' ], ''))
