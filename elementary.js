@@ -85,6 +85,6 @@ function modulo(a, b) {
 }
 
 
-console.log(multiply(34, 78))
-console.log(divide(34, 78))
-console.log(modulo(123, 22))
+// console.log(multiply(34, 78))
+// console.log(divide(34, 78))
+// console.log(modulo(123, 22))
