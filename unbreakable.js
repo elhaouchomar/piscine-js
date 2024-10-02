@@ -1,27 +1,42 @@
-function check(str, start, end) {
-    let result = ''
-    for (let i = start; i < end && i < str.length; i++) {
-        result += str[i]
+function split(s,b){
+    let ar =[]
+    if (b == null){
+        ar[ar.length]=s
+        return ar
     }
-    return result
-}
-
-function split(str, sep) {
-    const result = []
-    let current = ''
-    for (let i = 0; i < str.length; i++) {
-        if (check(str, i, i + sep.length) === sep) {
-            result[result.length] = current
-            current = '';
-            i += sep.length - 1
-        } else {
-            current += str[i]
+    if (b ===''){
+        for (let i = 0 ; i < s.length; i++){
+            ar[ar.length]=s[i]
         }
+        return ar
     }
-    result[result.length] = current
-    return result
+    let str =""
+    for (let i = 0 ; i < s.length; i++){
+        if (s[i]===b[0] ){
+            let x = b[0]
+            for (let j = 1 ; j < b.length; j++){
+                x+= b[j]
+                i++
+            }
+            if (x==b){
+                ar[ar.length] = str
+                str = ""
+            }
+            if (i ===s.length-1){
+                ar[ar.length] = str
+            }  
+            continue
+        }
+        str += s[i]
+    }
+    if (str !==""){
+        ar[ar.length] = str
+    }
+    if (ar.length===0){
+        ar[ar.length] = s
+    }
+    return ar
 }
-
 
 function join(arr, sep) {
     let result = ""
@@ -34,7 +49,7 @@ function join(arr, sep) {
     return result
 }
 
-// const str = "hello world dfsgnf fgnnf";
-// const sep = " ";
+// const str = "hedddllo wordddld dfsdddgnf fdddgnnf";
+// const sep = "ddd";
 // console.log(split(str, sep));
 // console.log(join(['o', 'm', 'a', 'r'], ''))
