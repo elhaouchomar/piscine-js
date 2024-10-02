@@ -1,6 +1,6 @@
 function multiply(a, b) {
     let result = 0
-    isNeg = true
+    let isNeg = true
 
     if (a == 0 || b == 0) {
         return 0
@@ -28,7 +28,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     let result = 0
-    isNeg = true
+    let isNeg = true
 
     if (a == 0 || b == 0) {
         return 0
@@ -57,7 +57,7 @@ function divide(a, b) {
 
 function modulo(a, b) {
     let result = 0
-    isNeg = true
+    let isNeg = true
 
     if (a == 0 || b == 0) {
         return 0
