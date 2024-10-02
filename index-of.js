@@ -1,10 +1,10 @@
 function indexOf(arr, value, start) {
-    if (start === null) {
+    if (start == null) {
         start = 0
     }
 
     for (let i = start; i < arr.length; i++) {
-        if (value === arr[i]) {
+        if (arr[i] === value) {
             return i
         }
     }
@@ -12,7 +12,7 @@ function indexOf(arr, value, start) {
 }
 
 function lastIndexOf(arr, value, start) {
-    if (start === null) {
+    if (start == null) {
         start = arr.length - 1
     }
     for (let i = start; i >= 0; i--) {
@@ -32,6 +32,6 @@ function includes(arr, value) {
     return false
 }
 
-// console.log(indexOf("omar", 'r', 54))
+// console.log(indexOf([1, 2, 3, 4, 5, 4, 3, 2, 1], 2))
 // console.log(lastIndexOf("omar", 'r', null))
 // console.log(includes("omar", 'p'))
