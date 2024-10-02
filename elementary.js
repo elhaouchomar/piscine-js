@@ -1,12 +1,10 @@
 function multiply(a, b) {
+    let result = 0
+    isNeg = true
 
     if (a == 0 || b == 0) {
         return 0
     }
-
-    let result = 0
-    isNeg = true
-
 
     if (a < 0) {
         isNeg = !isNeg
@@ -29,12 +27,12 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    let result = 0
+    isNeg = true
+
     if (a == 0 || b == 0) {
         return 0
     }
-
-    let result = 0
-    isNeg = true
 
     if (a < 0) {
         isNeg = !isNeg
@@ -58,12 +56,13 @@ function divide(a, b) {
 }
 
 function modulo(a, b) {
-    if ( a == 0 || b == 0) {
+    let result = 0
+    isNeg = true
+
+    if (a == 0 || b == 0) {
         return 0
     }
 
-    let result = 0
-    isNeg = true
 
     if (a < 0) {
         isNeg = !isNeg
@@ -71,12 +70,12 @@ function modulo(a, b) {
     }
 
     if (b < 0) {
-        isNeg = ! isNeg
+        isNeg = !isNeg
         b = -b
     }
 
-    for (let i = a; i >= b; i-=b) {
-        result=i
+    for (let i = a; i >= b; i -= b) {
+        result = i
     }
     result -= b
 
