@@ -44,8 +44,7 @@ function divide(a, b) {
         b = -b
     }
 
-    for (let i = 0; i < b; i++) {
-        a -= b
+    for (let i = a; i >= b; i -= b) {
         result++
     }
     if (!isNeg) {
@@ -86,6 +85,6 @@ function modulo(a, b) {
 }
 
 
-// console.log(multiply(3, 15))
-// console.log(divide(-15, -3))
-// console.log(modulo(13, -2))
+console.log(multiply(34, 78))
+console.log(divide(34, 78))
+console.log(modulo(13, -2))
