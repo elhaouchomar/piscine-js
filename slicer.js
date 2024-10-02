@@ -1,15 +1,13 @@
 function slice(str, start, end) {
-    let result = ""
+    let result = "";
     if (start == null) {
-        start = 0
+        start = 0;
     }
     if (end == null) {
-        end = str.lenght -1
+        end = str.length;
     }
-    for (i = start; i <= end; i++) {
-        result += str[i]
+    for (let i = start; i < end; i++) {
+        result += str[i];
     }
-    return result
+    return result;
 }
-
-// console.log(slice("omar", 0, 2))
