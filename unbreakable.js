@@ -37,19 +37,14 @@ function split(s,b){
     }
     return ar
 }
-
-function join(arr, sep) {
-    let result = ""
-    for (let i = 0; i < arr.length; i++) {
-        result += arr[i]
-        if (i < sep.length - 1) {
-            result += sep
+function join(arr,b){
+    let str = ""
+    for (let i = 0 ; i < arr.length; i++){
+        if (i ===arr.length-1){
+            str += arr[i]
+            break
         }
+        str += arr[i]+b
     }
-    return result
+    return str
 }
-
-// const str = "hedddllo wordddld dfsdddgnf fdddgnnf";
-// const sep = "ddd";
-// console.log(split(str, sep));
-// console.log(join(['o', 'm', 'a', 'r'], ''))
