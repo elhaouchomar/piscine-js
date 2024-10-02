@@ -34,7 +34,7 @@ function join(arr, sep) {
     return result
 }
 
-const str = "hello world";
-const sep = " ";
-console.log(split(str, sep));
-console.log(join(['o', 'm', 'a', 'r'], ''))
+// const str = "hello world";
+// const sep = " ";
+// console.log(split(str, sep));
+// console.log(join(['o', 'm', 'a', 'r'], ''))
