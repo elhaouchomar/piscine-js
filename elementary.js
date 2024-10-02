@@ -1,11 +1,5 @@
-function multiply(a, b) {
-    let result = 0
-    let isNeg = true
-
-    if (a == 0 || b == 0) {
-        return 0
-    }
-
+function check(a, b) {
+    let isNeg =  true
     if (a < 0) {
         isNeg = !isNeg
         a = -a
@@ -15,6 +9,16 @@ function multiply(a, b) {
         isNeg = !isNeg
         b = -b
     }
+}
+
+function multiply(a, b) {
+    let result = 0
+    let isNeg = true
+
+    if (a == 0 || b == 0) {
+        return 0
+    }
+    check(a, b)
 
     for (let i = 0; i < b; i++) {
         result += a
@@ -33,16 +37,7 @@ function divide(a, b) {
     if (a == 0 || b == 0) {
         return 0
     }
-
-    if (a < 0) {
-        isNeg = !isNeg
-        a = -a
-    }
-
-    if (b < 0) {
-        isNeg = !isNeg
-        b = -b
-    }
+    check(a, b)
 
     for (let i = a; i >= b; i -= b) {
         result++
@@ -85,6 +80,6 @@ function modulo(a, b) {
 }
 
 
-// console.log(multiply(34, 78))
-// console.log(divide(34, 78))
-// console.log(modulo(123, 22))
+console.log(multiply(-4, 78))
+console.log(divide(34, 78))
+console.log(modulo(123, 22))
