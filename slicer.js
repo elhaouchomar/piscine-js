@@ -3,7 +3,7 @@ function slice(str, start = 0, end = str.length) {
         start += str.length
     }
     if (end < 0) {
-        end += arr.length
+        end += str.length
     }
     let result = "";
     for (let i = start; i < end; i++) {
@@ -12,4 +12,4 @@ function slice(str, start = 0, end = str.length) {
     return result;
 }
 
-// console.log(slice('abcdef', -2))
+console.log(slice('abcdef', 0, -2))
