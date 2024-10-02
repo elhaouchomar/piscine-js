@@ -1,18 +1,18 @@
-function split(str, sep) {
+function split(s, sep) {
     let ar = []
     if (sep == null) {
-        ar[ar.length] = str
+        ar[ar.length] = s
         return ar
     }
     if (sep === '') {
-        for (let i = 0; i < str.length; i++) {
-            ar[ar.length] = str[i]
+        for (let i = 0; i < s.length; i++) {
+            ar[ar.length] = s[i]
         }
         return ar
     }
     let str = ""
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === sep[0]) {
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === sep[0]) {
             let x = sep[0]
             for (let j = 1; j < sep.length; j++) {
                 x += sep[j]
@@ -22,18 +22,18 @@ function split(str, sep) {
                 ar[ar.length] = str
                 str = ""
             }
-            if (i === str.length - 1) {
+            if (i === s.length - 1) {
                 ar[ar.length] = str
             }
             continue
         }
-        str += str[i]
+        str += s[i]
     }
     if (str !== "") {
         ar[ar.length] = str
     }
     if (ar.length === 0) {
-        ar[ar.length] = str
+        ar[ar.length] = s
     }
     return ar
 }
