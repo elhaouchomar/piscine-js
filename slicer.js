@@ -5,6 +5,13 @@ function slice(str, start = 0, end = str.length) {
     if (end < 0) {
         end += str.length
     }
+    if (Array.isArray(str)) {
+        let arr = []
+        for (let i = start; i < end; i++) {
+            arr[arr.length] = str[i];
+        }
+        return arr
+    }
     let result = "";
     for (let i = start; i < end; i++) {
         result += str[i];
@@ -12,4 +19,4 @@ function slice(str, start = 0, end = str.length) {
     return result;
 }
 
-console.log(slice('abcdef', 0, -2))
+// console.log(slice([1, 2, 3, 4, 5, 6], 2))
