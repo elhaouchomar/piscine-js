@@ -5,10 +5,12 @@ function DNA(str) {
             RNA += 'C'
         } else if (str[i] === 'C') {
             RNA += 'G'
+        } else if (str[i] === 'U') {
+            RNA += 'U'
+        } else if (str[i] === 'A') {
+            RNA += 'A'
         } else if (str[i] === 'T') {
             RNA += 'A'
-        } else if (str[i] === 'A') {
-            RNA += 'U'
         }
     }
     return RNA
