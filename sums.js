@@ -1,6 +1,10 @@
 function sums(n) {
     const result = [];
 
+    if (n === 0) {
+        return result;
+    }
+
     function backtrack(remaining, start, path) {
         if (remaining === 0) {
             result.push(path);
@@ -16,4 +20,5 @@ function sums(n) {
     return result.filter(partition => partition.length > 1 || partition[0] !== n);
 }
 
-// console.log(sums(5));
+console.log(sums(4));
+console.log(sums(0));
