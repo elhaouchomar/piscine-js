@@ -1,7 +1,7 @@
 function pyramid(str, n) {
     let result = "";
     for (let i = 0; i < n - 1; i++) {
-        const spaces = ' '.repeat(n - i - 1); 
+        const spaces = '  '.repeat(n - i - 1); 
         const characters = str.repeat(i * 2 + 1); 
         result += spaces + characters + '\n'; 
     }
@@ -12,4 +12,4 @@ function pyramid(str, n) {
     return result;
 }
 
-// console.log(pyramid('*', 5));
+// console.log(pyramid('{}', 5));
