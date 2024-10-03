@@ -23,15 +23,16 @@ function RNA(str) {
             DNA += 'G'
         } else if (str[i] === 'T') {
             DNA += 'A'
-        } else if (str[i] === 'U') {
-            DNA += 'A'
+        } else if (str[i] === 'A') {
+            DNA += 'U'
         }
     }
     return DNA
 }
 
 
+
 // const ARN = DNA('AGCTAGTTAGGC')
-// const ADN = RNA('UCGAUCAAUCCG')
+// const ADN = RNA('TAGC')
 // console.log(ARN)
 // console.log(ADN)
