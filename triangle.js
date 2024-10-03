@@ -1,8 +1,8 @@
-function triangle(character, height) {
+function triangle(char, h) {
     let result = ''
 
-    for (let i = 1; i <= height; i++) {
-        result += character.repeat(i) + '\n'
+    for (let i = 1; i <= h; i++) {
+        result += char.repeat(i) + '\n'
     }
 
     return result.trim()
