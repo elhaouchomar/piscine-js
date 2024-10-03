@@ -32,5 +32,5 @@ function DNA(str) {
     return DNA;
 }
 
-console.log(RNA(DNA('AUCG')));
+// console.log(RNA(DNA('AUCG')));
 // console.log(RNA('UAGC')); 
