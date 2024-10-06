@@ -11,6 +11,12 @@ function crosswordSolver(emptyPuzzle, words) {
     let arr = emptyPuzzle.split('\n');
     let res = [...arr.map(line => line.split(''))];
 
+    const startingCellsCount = getStartingCellsCount(res);
+    if (startingCellsCount !== words.length) {
+        console.log(`Error`);
+        return;
+    }
+
     if (solve(res, words, 0)) {
         for (let i = 0; i < res.length; i++) {
             console.log(res[i].join(''));
@@ -20,22 +26,34 @@ function crosswordSolver(emptyPuzzle, words) {
     }
 }
 
+function getStartingCellsCount(res) {
+    let count = 0;
+    for (let i = 0; i < res.length; i++) {
+        for (let j = 0; j < res[i].length; j++) {
+            if (!isNaN(Number(res[i][j])) && Number(res[i][j]) > 0) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
 function solve(res, words, index) {
     if (index < words.length) {
-        var word = words[index];
+        const word = words[index];
 
-        for (var i = 0; i < res.length; i++) {
-            for (var j = 0; j < res[i].length; j++) {
+        for (let i = 0; i < res.length; i++) {
+            for (let j = 0; j < res[i].length; j++) {
                 if (!isNaN(Number(res[i][j])) || res[i][j] === word[0]) {
                     if (possibleVertical(res, word, i, j)) {
-                        var placedVer = changeVertical(res, word, i, j);
+                        const placedVer = changeVertical(res, word, i, j);
                         if (solve(res, words, index + 1)) {
                             return true;
                         }
                         removeVertical(res, placedVer, i, j);
                     }
                     if (possibleHorizontal(res, word, i, j)) {
-                        var placedHor = changeHorizontal(res, word, i, j);
+                        const placedHor = changeHorizontal(res, word, i, j);
                         if (solve(res, words, index + 1)) {
                             return true;
                         }
@@ -95,7 +113,7 @@ function changeVertical(res, word, i, j) {
 function removeHorizontal(res, arr, i, j) {
     for (let k = 0; k < arr.length; k++) {
         if (arr[k]) {
-            res[i][j + k] = "0";
+            res[i][j + k] = "0"; 
         }
     }
 }
@@ -103,11 +121,11 @@ function removeHorizontal(res, arr, i, j) {
 function removeVertical(res, arr, i, j) {
     for (let k = 0; k < arr.length; k++) {
         if (arr[k]) {
-            res[i + k][j] = "0";
+            res[i + k][j] = "0";  
         }
     }
 }
 const puzzle = '2001\n0..0\n1000\n0..0'
 const words = ['aaab', 'aaac', 'aaad', 'aaae']
 
-crosswordSolver(puzzle, words)
+crosswordSolver(puzzle, words);
