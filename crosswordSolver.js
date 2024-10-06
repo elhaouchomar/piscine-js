@@ -1,21 +1,19 @@
-function crosswordSolver(emptyPuzzle, words) {
-    if (typeof emptyPuzzle !== 'string' || !Array.isArray(words)) {
+function crosswordSolver(puzzle, words) {
+        words.sort()
+
+    if (typeof puzzle !== 'string' || !Array.isArray(words)) {
         console.log('Error');
         return;
     }
-    if (emptyPuzzle.trim() === '') {
+    if (puzzle.trim() === '') {
         console.log('Error');
         return;
     }
 
-    let arr = emptyPuzzle.split('\n');
+    let arr = puzzle.split('\n');
     let res = [...arr.map(line => line.split(''))];
 
-    const startingCellsCount = getStartingCellsCount(res);
-    if (startingCellsCount !== words.length) {
-        console.log(`Error`);
-        return;
-    }
+    words = words.map(word => isReversed(word) ? reverseString(word) : word);
 
     if (solve(res, words, 0)) {
         for (let i = 0; i < res.length; i++) {
@@ -24,6 +22,15 @@ function crosswordSolver(emptyPuzzle, words) {
     } else {
         console.log('Error');
     }
+}
+
+function isReversed(word) {
+    // Check if the word is in reversed order
+    return word === reverseString(word);
+}
+
+function reverseString(str) {
+    return str.split('').reverse().join('');
 }
 
 function getStartingCellsCount(res) {
@@ -72,7 +79,7 @@ function possibleHorizontal(res, word, i, j) {
         return false;
     }
     for (let k = 0; k < word.length; k++) {
-        if (k + j >= res[i].length || 
+        if (k + j >= res[i].length ||
             (isNaN(Number(res[i][j + k])) && res[i][j + k] !== word[k])) {
             return false;
         }
@@ -113,7 +120,7 @@ function changeVertical(res, word, i, j) {
 function removeHorizontal(res, arr, i, j) {
     for (let k = 0; k < arr.length; k++) {
         if (arr[k]) {
-            res[i][j + k] = "0"; 
+            res[i][j + k] = "0";
         }
     }
 }
@@ -121,11 +128,14 @@ function removeHorizontal(res, arr, i, j) {
 function removeVertical(res, arr, i, j) {
     for (let k = 0; k < arr.length; k++) {
         if (arr[k]) {
-            res[i + k][j] = "0";  
+            res[i + k][j] = "0";
         }
     }
 }
-const puzzle = '2001\n0..0\n1000\n0..0'
-const words = ['aaab', 'aaac', 'aaad', 'aaae']
+const puzzle = '2001\n0..0\n2000\n0..0'
+const words = ['casa', 'alan', 'ciao', 'anta']
 
-crosswordSolver(puzzle, words);
+
+
+
+crosswordSolver(puzzle, words)
