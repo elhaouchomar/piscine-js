@@ -1,6 +1,4 @@
 function crosswordSolver(puzzle, words) {
-        words.sort()
-
     if (typeof puzzle !== 'string' || !Array.isArray(words)) {
         console.log('Error');
         return;
@@ -11,11 +9,31 @@ function crosswordSolver(puzzle, words) {
     }
 
     let arr = puzzle.split('\n');
-    let res = [...arr.map(line => line.split(''))];
+    let res = arr.map(line => line.split(''));
 
-    words = words.map(word => isReversed(word) ? reverseString(word) : word);
+    const puzzleSum = getPuzzleSum(res);
+
+    if (puzzleSum !== words.length) {
+        console.log('Error');
+        return;
+    }
+
+    const reversedWords = words.map(word => word.split('').reverse().join(''));
+    const hasReversedWord = reversedWords.some(word => words.includes(word));
+
+    if (hasReversedWord) {
+        console.log('Error');
+        return;
+    }
+
+    words.sort();
 
     if (solve(res, words, 0)) {
+        if (res.flat().some(cell => cell === '0' || cell === '1' || cell === '2')) {
+            console.log('Error');
+            return;
+        }
+
         for (let i = 0; i < res.length; i++) {
             console.log(res[i].join(''));
         }
@@ -24,25 +42,16 @@ function crosswordSolver(puzzle, words) {
     }
 }
 
-function isReversed(word) {
-    // Check if the word is in reversed order
-    return word === reverseString(word);
-}
-
-function reverseString(str) {
-    return str.split('').reverse().join('');
-}
-
-function getStartingCellsCount(res) {
-    let count = 0;
+function getPuzzleSum(res) {
+    let sum = 0;
     for (let i = 0; i < res.length; i++) {
         for (let j = 0; j < res[i].length; j++) {
-            if (!isNaN(Number(res[i][j])) && Number(res[i][j]) > 0) {
-                count++;
+            if (res[i][j] === '1' || res[i][j] === '2') {
+                sum += Number(res[i][j]); 
             }
         }
     }
-    return count;
+    return sum;
 }
 
 function solve(res, words, index) {
@@ -132,10 +141,8 @@ function removeVertical(res, arr, i, j) {
         }
     }
 }
-const puzzle = '2001\n0..0\n2000\n0..0'
-const words = ['casa', 'alan', 'ciao', 'anta']
+const puzzle = '2001\n0..0\n1000\n0..0'
+const words = ['aaab', 'aaac', 'aaad', 'aaae']
 
 
-
-
-crosswordSolver(puzzle, words)
+crosswordSolver(puzzle, words);
