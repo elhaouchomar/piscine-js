@@ -5,7 +5,7 @@ function matchCron(cronString, date) {
     const hour = date.getHours();
     const dayOfMonth = date.getDate();
     const month = date.getMonth() + 1;
-    const dayOfWeek = (date.getDay() + 1) % 7 || 7;
+    const dayOfWeek = date.getDay() ;
 
     const matches = (cronField, value) => {
         return cronField === '*' || cronField == value;
