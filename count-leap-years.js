@@ -8,9 +8,9 @@ function countLeapYears(date) {
         }
     }
 
-    return leapYearCount;
+    return leapYearCount-1;
 }
-
+// console.log(countLeapYears(new Date('1664-08-09')))
 // console.log(countLeapYears(new Date('2024-01-01')));
 // console.log(countLeapYears(new Date('2000-01-01')));
 // console.log(countLeapYears(new Date('1900-01-01')));
