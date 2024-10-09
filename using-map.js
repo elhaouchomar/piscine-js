@@ -8,7 +8,7 @@ function upperCasing(arr) {
     const str = arr.split(' ')
     let stri = ""
     for (let i = 0; i < str.length; i++) {
-        if (i != str.length -1) {
+        if (i != str.length - 1) {
 
             stri += str[i].charAt(0).toUpperCase() + str[i].slice(1) + ' '
         } else {
@@ -35,7 +35,10 @@ function convert(f) {
 
 // 4
 function trimTemp(arr) {
-    return arr.map(value => value.temperature.replace(/\s+/g, ''))
+    return arr.map((value) => {
+        value.temperature =  value.temperature.replace(/\s/g, '')
+        return value
+    })
 }
 
 // 5
