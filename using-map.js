@@ -46,6 +46,6 @@ function tempForecasts(arr) {
     return arr.map(value => {
         const tm = parseFloat(value.temperature);
         const celsius = convert(tm);
-        return Math.round(celsius) + "°C in " + value.city + ', ' + value.state
+        return Math.round(celsius) + "°Celsius in " + value.city + ', ' + upperCasing(value.state)
     });
 }
