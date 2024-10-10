@@ -1,6 +1,6 @@
 // 1
-function adder(arr) {
-    return arr.reduce((sum, current) => sum + current)
+function adder(arr, def) {
+    return arr.reduce((sum, current) => sum + current, def)
 }
 
 const n = [1, 2, 3, 4, 5]
