@@ -1,12 +1,16 @@
 // 1
-function adder(arr) {
-    return arr.reduce((sum, current) => sum + current, 0)
+function adder(arr, def = 0) {
+    return arr.reduce((sum, current,) => sum + current, def)
 }
 
 // 2
-function sumOrMul(arr, def) {
+function sumOrMul(arr, def = 0) {
     return arr.reduce((res, cur) => {
-        return cur % 2 === 0 ? res * cur : res + cur
+        if (cur % 2 === 0) {
+            return res * cur
+        } else {
+            return res + cur
+        }
     }, def)
 }
 
