@@ -44,4 +44,4 @@ function reduceRight(array, fn) {
     return initial
 }
 
-console.log(reduceRight(arr, add));
+console.log(reduceRight(arr, add));w
