@@ -5,6 +5,6 @@ function forEach(arr, funcs) {
 }
 
 // const numbers = [1, 2, 3, 4, 5];
-// forEach(numbers, element => {
-//     console.log(element);
+// forEach(numbers, funcs => {
+//     console.log(funcs);
 // });
