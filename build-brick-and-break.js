@@ -1,25 +1,37 @@
-export { build, repair, destroy };
+export {build, repair, destroy}
 
-const build = (count) => {
-    const interval = setInterval(() => {
-        if (count-- <= 0) return clearInterval(interval);
-        const brick = document.createElement('div');
-        brick.id = `brick-${count + 1}`;
-        if (count % 3 === 1) brick.dataset.foundation = 'true';
-        document.body.append(brick);
-    }, 100);
+const build = (n) => {
+    n++
+    let counter = 1, start = 1, middle = false;
+    let i = setInterval(function () {
+        if (start === 4) start = 1;
+        const newDiv = document.createElement('div');
+        newDiv.id = 'brick-' + counter;
+        if (start === 2) {
+            newDiv.dataset.foundation = 'true';
+        }
+        document.body.append(newDiv);
+        counter++
+        start++
+        if (counter === n) clearInterval(i)
+    },100);
 }
 
 const repair = (...ids) => {
-    ids.forEach(id => {
-        const brick = document.getElementById(id);
-        if (brick) {
-            brick.dataset.repaired = brick.dataset.foundation ? 'in progress' : 'true';
+    for (let i = 0; i < ids.length; i++) {
+        const brick = document.getElementById(ids[i]);
+        if (brick === null) continue;
+        if (brick.hasAttribute('data-foundation')) {
+            brick.dataset.repaired = 'in progress';
+        } else {
+            brick.dataset.repaired = 'true';
         }
-    });
+    }
 }
 
 const destroy = () => {
-    const bricks = document.querySelectorAll('div');
-    if (bricks.length) bricks[bricks.length - 1].remove();
+    let bricks = document.getElementsByTagName('div');
+    let lBricks = bricks.length;
+    let id = 'brick-' + lBricks;
+    if (bricks[id] !== undefined) bricks[id].remove();
 }
