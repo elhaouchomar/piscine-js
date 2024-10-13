@@ -1,88 +1,65 @@
-let box;
-let lastCircle = null;
-let boxBounds = {};
-
+let box
+let lastCircle = null
+let l, r, t, b
 export function createCircle() {
-    document.addEventListener("click", handleClick);
-}
+    addEventListener("click", function (event) {
+        let circle = document.createElement("div")
+        circle.className = "circle"
+        circle.style.left = event.clientX -25+ "px"
+        circle.style.top = event.clientY -25+ "px"
+        document.body.appendChild(circle)
+        lastCircle = circle
+        let boxRect = box.getBoundingClientRect()
+        l = boxRect.left
+        r = boxRect.right
+        t = boxRect.top
+        b = boxRect.bottom
+        if (event.clientX >= l+25
+            && event.clientX <= r-25
+            && event.clientY >= t+25
+            && event.clientY <= b-25) 
+        {
+            circle.style.background = "var(--purple)"
 
-function handleClick(event) {
-    const circle = document.createElement("div");
-    circle.className = "circle";
-    setCirclePosition(circle, event.clientX, event.clientY);
-    document.body.appendChild(circle);
-    lastCircle = circle;
+        } else {
+            circle.style.background = "white"
 
-    updateBoxBounds();
-
-    if (isCircleInsideBox(event.clientX, event.clientY)) {
-        circle.style.background = "var(--purple)";
-    } else {
-        circle.style.background = "white";
-    }
-}
-
-function setCirclePosition(circle, x, y) {
-    const radius = 25;
-    circle.style.left = `${x - radius}px`;
-    circle.style.top = `${y - radius}px`;
-}
-
-function updateBoxBounds() {
-    if (box) {
-        const boxRect = box.getBoundingClientRect();
-        boxBounds = {
-            left: boxRect.left,
-            right: boxRect.right,
-            top: boxRect.top,
-            bottom: boxRect.bottom
-        };
-    }
-}
-
-function isCircleInsideBox(x, y) {
-    return (
-        x >= boxBounds.left + 25 &&
-        x <= boxBounds.right - 25 &&
-        y >= boxBounds.top + 25 &&
-        y <= boxBounds.bottom - 25
-    );
-}
-
-export function moveCircle() {
-    document.addEventListener("mousemove", handleMouseMove);
-}
-
-function handleMouseMove(event) {
-    if (lastCircle) {
-        setCirclePosition(lastCircle, event.clientX, event.clientY);
-
-        if (isCircleInsideBox(event.clientX, event.clientY)) {
-            lastCircle.style.background = "var(--purple)";
-            constrainCircleWithinBox(event.clientX, event.clientY);
         }
-    }
+    })
 }
+export function moveCircle() {
+    
+    addEventListener("mousemove", event => {
+        if (lastCircle) {
+            lastCircle.style.left = event.clientX -25+"px"
+            lastCircle.style.top = event.clientY -25+ "px"
+            if (event.clientX >= l+26
+                && event.clientX <= r -26&&
+                event.clientY >= t +26&& 
+                event.clientY <= b-26) 
+            {
+                lastCircle.style.background = 'var(--purple)'
 
-function constrainCircleWithinBox(x, y) {
-    const radius = 25;
-
-    if (x - radius < boxBounds.left) {
-        lastCircle.style.left = `${boxBounds.left}px`;
-    }
-    if (x + radius > boxBounds.right) {
-        lastCircle.style.left = `${boxBounds.right - radius * 2}px`;
-    }
-    if (y - radius < boxBounds.top) {
-        lastCircle.style.top = `${boxBounds.top}px`;
-    }
-    if (y + radius > boxBounds.bottom) {
-        lastCircle.style.top = `${boxBounds.bottom - radius * 2}px`;
-    }
+            }
+            if (lastCircle.style.background == 'var(--purple)') {
+                if (event.clientX -25< l) {
+                    lastCircle.style.left = l + "px"
+                }
+                if (event.clientX +25> r) {
+                    lastCircle.style.left = r - 50 + "px"
+                }
+                if (event.clientY -25< t) {
+                    lastCircle.style.top = t + "px"
+                }
+                if (event.clientY +25> b) {
+                    lastCircle.style.top = b - 50+ "px"
+                }
+            }
+        }
+    })
 }
-
 export function setBox() {
-    box = document.createElement("div");
-    box.className = "box";
-    document.body.appendChild(box);
+    box = document.createElement("div")
+    box.className = "box"
+    document.body.appendChild(box)
 }
