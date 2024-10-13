@@ -6,15 +6,16 @@ const tableBody = document.querySelector('#heroes-table tbody'),
     pageSizeSelect = document.querySelector('#page-size'),
     pageInfo = document.querySelector('#page-info'),
     prevPageButton = document.querySelector('#prev-page'),
-    nextPageButton = document.querySelector('#next-page');
+    nextPageButton = document.querySelector('#next-page'),
+    pagination = document.querySelector('#pagination');
 
 // Fetches superhero data and initializes the display
 fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
     .then(response => response.json())
     .then(data => {
         heroesData = data;
-        filteredData = [...heroesData]
-        displayPage()
+        filteredData = [...heroesData];
+        displayPage();
     });
 
 // Filters heroes based on search input and resets the page
@@ -28,8 +29,8 @@ searchInput.addEventListener('input', () => {
 pageSizeSelect.addEventListener('change', () => {
     pageSize = pageSizeSelect.value === 'all' ? filteredData.length : parseInt(pageSizeSelect.value, 10);
     pagination.style.display = pageSizeSelect.value === 'all' ? 'none' : 'flex';
-    currentPage = 1
-    displayPage()
+    currentPage = 1;
+    displayPage();
 });
 
 // Moves to the previous page if possible
@@ -45,14 +46,15 @@ nextPageButton.addEventListener('click', () => {
 // Adds click listeners to table headers for sorting
 document.querySelectorAll('#heroes-table th').forEach((header, index) => {
     header.addEventListener('click', () => {
-        const sortColumns = ['images.xs', 'name', 'biography.fullName', 'powerstats', 'appearance.race', 'appearance.gender', 'appearance.height', 'appearance.weight', 'biography.placeOfBirth', 'biography.alignment'];
+        const sortColumns = ['images.xs', 'name', 'biography.fullName', 'powerstats.intelligence', 'powerstats.strength', 'powerstats.speed', 'powerstats.durability', 'powerstats.power', 'powerstats.combat', 'appearance.race', 'appearance.gender', 'appearance.height', 'appearance.weight', 'biography.placeOfBirth', 'biography.alignment'];
         sortColumn = sortColumns[index];
-
-        if (sortColumn !== 'powerstats' && sortColumn !== 'images.xs') {
+        
+        // Toggle sort direction
+        if (index !== 0) { // Prevent sorting on image column
             sortAscending = !sortAscending;
             sortData();
         }
-        displayPage()
+        displayPage();
     });
 });
 
@@ -61,6 +63,7 @@ function sortData() {
     filteredData.sort((a, b) => {
         let aValue = getNestedValue(a, sortColumn);
         let bValue = getNestedValue(b, sortColumn);
+        
         if (sortColumn === 'appearance.height') {
             aValue = convertHeightToCm(aValue[1]);
             bValue = convertHeightToCm(bValue[1]);
@@ -69,9 +72,9 @@ function sortData() {
             aValue = convertWeightToKg(aValue[1]);
             bValue = convertWeightToKg(bValue[1]);
         }
+        
         const isANullOrInvalid = aValue === null || aValue === '' || aValue === '-';
         const isBNullOrInvalid = bValue === null || bValue === '' || bValue === '-';
-
         if (isANullOrInvalid && isBNullOrInvalid) return 0;
         if (isANullOrInvalid) return 1;
         if (isBNullOrInvalid) return -1;
@@ -81,49 +84,53 @@ function sortData() {
     });
 }
 
-// Converts height string to cm
+// Convert height string to cm
 function convertHeightToCm(heightStr) {
     if (!heightStr) return null;
     return heightStr.includes('cm') ? parseInt(heightStr) : Math.round(parseFloat(heightStr) * 100);
 }
 
-// Converts weight string to kg
+// Convert weight string to kg
 function convertWeightToKg(weightStr) {
     if (!weightStr) return null;
     return weightStr.includes('kg') ? parseInt(weightStr) : Math.round(parseFloat(weightStr) * 1000);
 }
 
-// Displays the current page of heroes in the table
+// Retrieve nested object value based on dot notation path
+function getNestedValue(obj, path) {
+    return path.split('.').reduce((o, p) => o?.[p], obj);
+}
+
+// Display the current page of heroes in the table
 function displayPage() {
     tableBody.innerHTML = '';
-    filteredData.slice((currentPage - 1) * pageSize, currentPage * pageSize).forEach(hero => {
+    const start = (currentPage - 1) * pageSize;
+    const end = start + pageSize;
+
+    filteredData.slice(start, end).forEach(hero => {
         const row = document.createElement('tr');
-        let heigth = ""
-        if (hero.appearance.height.length !== 2) {
-            heigth = hero.appearance.height[0]
-        }else{
-            heigth = hero.appearance.height[1]
-        }
+        const height = hero.appearance.height.length === 2 ? hero.appearance.height[1] : hero.appearance.height[0];
+
         row.innerHTML = `
-            <td><img src="${hero.images.xs}" alt="${hero.name}"></td>
+            <td><img src="${hero.images.xs}" alt="${hero.name}" width="50"></td>
             <td>${hero.name}</td>
             <td>${hero.biography.fullName}</td>
-            <td>${Object.entries(hero.powerstats)
-                .map(([k, v]) => `${k}: ${v}`)
-                .join(' | ')}</td>
+            <td>${hero.powerstats.intelligence}</td>
+            <td>${hero.powerstats.strength}</td>
+            <td>${hero.powerstats.speed}</td>
+            <td>${hero.powerstats.durability}</td>
+            <td>${hero.powerstats.power}</td>
+            <td>${hero.powerstats.combat}</td>
             <td>${hero.appearance.race}</td>
             <td>${hero.appearance.gender}</td>
-            <td>${heigth}</td>
+            <td>${height}</td>
             <td>${hero.appearance.weight[1]}</td>
             <td>${hero.biography.placeOfBirth}</td>
             <td>${hero.biography.alignment}</td>
         `;
+
         tableBody.appendChild(row);
     });
-    pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredData.length / pageSize)}`;
-}
 
-// Retrieves nested object value based on dot notation path
-function getNestedValue(obj, path) {
-    return path.split('.').reduce((o, p) => o?.[p], obj);
+    pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredData.length / pageSize)}`;
 }
