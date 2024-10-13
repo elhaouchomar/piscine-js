@@ -3,41 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Superheroes</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-    }
-
-    th {
-      cursor: pointer;
-      background-color: #f2f2f2;
-    }
-
-    img {
-      height: 50px;
-    }
-  </style>
+ 
 </head>
 <body>
-  <h1>Superheroes</h1>
+  <h1><a href="/">Superheroes</a></h1>
 
-  <input type="text" id="search" placeholder="Search by name...">
-  <label for="page-size">Results per page:</label>
-  <select id="page-size">
-    <option value="10">10</option>
-    <option value="20" selected>20</option>
-    <option value="50">50</option>
-    <option value="100">100</option>
-    <option value="all">All</option>
-  </select>
-
+  <div class="heahclass">
+    <input type="text" id="search" placeholder="Search by name...">
+    <label for="page-size">Results per page:</label>
+    <select id="page-size">
+      <option value="10">10</option>
+      <option value="20" selected>20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="all">All</option>
+    </select>
+  </div>
   <table id="heroes-table">
     <thead>
       <tr>

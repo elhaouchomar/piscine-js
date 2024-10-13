@@ -7,8 +7,10 @@ let sortAscending = true;
 
 const tableBody = document.querySelector('#heroes-table tbody');
 const searchInput = document.querySelector('#search');
+
 const pageSizeSelect = document.querySelector('#page-size');
 const pageInfo = document.querySelector('#page-info');
+const pagination = document.getElementById('pagination');
 const prevPageButton = document.querySelector('#prev-page');
 const nextPageButton = document.querySelector('#next-page');
 
@@ -32,18 +34,25 @@ searchInput.addEventListener('input', () => {
 // Change page size
 pageSizeSelect.addEventListener('change', () => {
   const selectedValue = pageSizeSelect.value;
+  if (selectedValue === 'all') {
+    pagination.style.display = 'none';
+  } else {
+    pagination.style.display = 'block';
+    currentPage = 1;
+  }
   pageSize = selectedValue === 'all' ? filteredData.length : parseInt(selectedValue, 10);
   currentPage = 1;
   displayPage();
 });
 
-// Pagination
+
 prevPageButton.addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
     displayPage();
   }
 });
+
 
 nextPageButton.addEventListener('click', () => {
   if (currentPage < Math.ceil(filteredData.length / pageSize)) {
@@ -68,7 +77,7 @@ function sortData() {
   filteredData.sort((a, b) => {
     let aValue = getNestedValue(a, sortColumn);
     let bValue = getNestedValue(b, sortColumn);
-    
+
     // Handle height and weight which are arrays in the format ["cm", "ft"]
     if (sortColumn === 'appearance.height' || sortColumn === 'appearance.weight') {
       aValue = parseInt(aValue[0]) || 0;
@@ -90,7 +99,7 @@ function displayPage() {
   const start = (currentPage - 1) * pageSize;
   const end = currentPage * pageSize;
   const pageData = filteredData.slice(start, end);
-  
+
   pageData.forEach(hero => {
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -107,7 +116,6 @@ function displayPage() {
     `;
     tableBody.appendChild(row);
   });
-
   pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredData.length / pageSize)}`;
 }
 
