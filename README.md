@@ -13,7 +13,7 @@ git clone <repository-url>
 
 ### Fonctionnality
 
-(...)
+(....)
 
 ### Collaborators
 
