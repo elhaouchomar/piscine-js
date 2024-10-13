@@ -1,20 +1,20 @@
 :root {
-  --primary-color: #000000;
-  --secondary-color: #000000;
-  --light-background: #e0f7fa;
-  --text-color: #333;
-  --border-color: #ddd;
-  --hover-bg: rgba(0, 0, 0, 0.5);
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --focus-shadow: rgba(0, 121, 107, 0.5);
-  --border-radius: 30px;
-  --padding: 12px;
-  --transition-speed: 0.3s;
+  --primary-color: #ff2d55;
+  --secondary-color: #0c7b93;
+  --light-background: #f0f9ff;
+  --text-color: #ffffff;
+  --border-color: #fff;
+  --hover-bg: rgba(255, 61, 85, 0.7); 
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --focus-shadow: rgba(255, 61, 85, 0.5);
+  --border-radius: 20px;
+  --padding: 15px;
+  --transition-speed: 0.4s;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #004d40;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #1a1a1d; 
   color: var(--text-color);
   margin: 0;
   padding: 20px;
@@ -25,35 +25,38 @@ body {
 h1 {
   color: var(--primary-color);
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 input[type="text"], select {
   padding: var(--padding);
   margin: 10px 0;
-  width: calc(100% - 24px);
+  width: calc(100% - 30px);
   max-width: 300px;
-  border: none;
+  border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 10px var(--shadow-color);
-  transition: box-shadow var(--transition-speed);
+  background: rgba(255, 255, 255, 0.2); 
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: box-shadow var(--transition-speed), background var(--transition-speed);
 }
 
 input[type="text"]:focus, select:focus {
   box-shadow: 0 0 15px var(--focus-shadow);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 20px var(--shadow-color);
 }
 
 th {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-color);
   padding: var(--padding);
   text-align: left;
   position: sticky;
@@ -66,13 +69,13 @@ th:hover {
 }
 
 tr {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 tr:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px var(--shadow-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--shadow-color);
 }
 
 td {
@@ -82,9 +85,9 @@ td {
 }
 
 img {
-  height: 50px;
+  height: 60px;
   border-radius: 50%;
-  box-shadow: 0 2px 5px var(--shadow-color);
+  box-shadow: 0 3px 10px var(--shadow-color);
 }
 
 #pagination {
@@ -95,19 +98,19 @@ img {
 }
 
 #pagination button {
-  padding: 10px 15px;
+  padding: 10px 20px;
   margin: 0 10px;
   border: none;
   border-radius: var(--border-radius);
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   cursor: pointer;
   transition: background var(--transition-speed), transform 0.2s;
 }
 
 #pagination button:hover {
-  background-color: #004d40;
-  transform: scale(1.05);
+  background-color: #0a4f5f;
+  transform: scale(1.1);
 }
 
 #page-info {
