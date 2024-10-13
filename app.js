@@ -49,8 +49,7 @@ document.querySelectorAll('#heroes-table th').forEach((header, index) => {
         const sortColumns = ['images.xs', 'name', 'biography.fullName', 'powerstats.intelligence', 'powerstats.strength', 'powerstats.speed', 'powerstats.durability', 'powerstats.power', 'powerstats.combat', 'appearance.race', 'appearance.gender', 'appearance.height', 'appearance.weight', 'biography.placeOfBirth', 'biography.alignment'];
         sortColumn = sortColumns[index];
         
-        // Toggle sort direction
-        if (index !== 0) { // Prevent sorting on image column
+        if (index !== 0) {
             sortAscending = !sortAscending;
             sortData();
         }
@@ -79,7 +78,6 @@ function sortData() {
         if (isANullOrInvalid) return 1;
         if (isBNullOrInvalid) return -1;
 
-        // Returns sorted comparison
         return sortAscending ? (aValue > bValue ? 1 : -1) : (aValue < bValue ? 1 : -1);
     });
 }
