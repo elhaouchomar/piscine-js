@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // var students = [
+        //     ["a", "b", "c", "d"],
+        //     [1, 2, 3, 4],
+        //     ["0000", "0001", "0002", "0003"]
+        // ]
+        // console.log("the name is:" + students[0][0])
+
+        let students = [
+            {
+                firstName: "a",
+                lastName: "b",
+                age: 15,
+                year: 2001,
+
+                names: function () {
+                    console.log(`${this.firstName} ${this.lastName}`);
+                }
+            },
+            {
+                firstName: "b",
+                lastName: "b",
+                age: 16,
+                year: 2002,
+
+                names: function () {
+                    console.log(`${this.firstName} ${this.lastName}`);
+                }
+            },             {
+                firstName: "c",
+                lastName: "b",
+                age: 17,
+                year: 2003,
+
+                names: function () {
+                    console.log(`${this.firstName} ${this.lastName}`);
+                }
+            }
+        ]
+        console.log(students[1].names());
+        // function name(st) {
+        //     console.log(`${st.firstName} ${st.lastName}`)
+        // }
+        // name(student)
+        // student.names()
+        // student.year = 2010
+        // student.gread = "A+"
+        // console.log(student.gread);
+    </script>
+</body>
+
+</html>
