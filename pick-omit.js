@@ -19,7 +19,7 @@ function omit(obj, str) {
     const keyArray = helpper(str);
     
     for (let key in obj) {
-        if (!keyArray.includes(key)) {
+        if (!keyArray.includes(key) && obj.hasOwnProperty(key)) {
             newobj[key] = obj[key];
         }
     }
