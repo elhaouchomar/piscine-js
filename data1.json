@@ -1,0 +1,5 @@
+{
+    "http": 403,
+    "connection": "close",
+    "contentType": "multipart/form-data"
+}
