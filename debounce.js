@@ -7,20 +7,18 @@ function debounce(func, wait) {
     };
 }
 
-function opDebounce(func, wait) {
+function opDebounce(func, wait, leading) {
+
     let timeout;
-    let opt = false;
+ 
 
     return function(...args) {
-        if (!opt) {
-            func(...args);
-            opt = true;
+        if (leading){
+            func(...args)
+            leading = false
         }
-
         clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            opt = false;
-        }, wait);
+        timeout = setTimeout(() => func(...args), wait);
     };
 }
 
