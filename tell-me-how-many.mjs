@@ -1,13 +1,9 @@
-import { readdirSync } from 'node:fs';
-import { readdir } from 'node:fs/promises';
-import { argv } from 'node:process';
-import test from 'node:test';
-
-const path = argv[2]
+import fs from 'fs'
+const pathDir = process.argv[2] || process.cwd()
 
 try {
-    const files = readdirSync(path);
+    const files = fs.readdirSync(pathDir);
     console.log(files.length);
-} catch (error) {
-    console.log(error);
+} catch (err) {
+    console.error(err);
 }
