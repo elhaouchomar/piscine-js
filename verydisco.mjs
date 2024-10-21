@@ -1,13 +1,11 @@
 const arg = process.argv[2];
-const array = arg.split(' ');
+const words = arg.split(' ');
 let res = '';
 
-for (let i = array.length - 1; i >= 0; i--) {
-    if (i !== 0 ) {
-        res += array[i] + ' '
-    } else {
-        res += array[i]
-    }
+for (let word of words) {
+    const half = Math.ceil(word.length / 2)
+    const first = word.slice(0, half)
+    const second = word.slice(half)
+    res += second + first + ' '
 }
-
-console.log(res);
+console.log(res.trim());
