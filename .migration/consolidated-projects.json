@@ -1,0 +1,50 @@
+[
+  {
+    "name": "crossword",
+    "status": "imported",
+    "branch": "master",
+    "commit": "625a5768bea0cf75f741048a76330edb9a83fb9d"
+  },
+  {
+    "name": "sortable",
+    "status": "imported",
+    "branch": "master",
+    "commit": "990035cbdaea31169179d70a952895188e9f506b"
+  },
+  {
+    "name": "clonernews",
+    "status": "empty source"
+  },
+  {
+    "name": "dataloop",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "findtime",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "call-me-maybe",
+    "status": "already inside",
+    "folder": "CALL-ME-MAYBE"
+  },
+  {
+    "name": "dom",
+    "status": "already inside",
+    "folder": "DOM"
+  },
+  {
+    "name": "object",
+    "status": "already inside",
+    "folder": "OBJECT"
+  },
+  {
+    "name": "async",
+    "status": "already inside",
+    "folder": "ASYNC"
+  },
+  {
+    "name": "node",
+    "status": "no standalone repository found"
+  }
+]
