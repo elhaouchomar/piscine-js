@@ -1,13 +1,13 @@
 [
   {
     "name": "crossword",
-    "status": "imported",
+    "status": "already inside",
     "branch": "master",
     "commit": "625a5768bea0cf75f741048a76330edb9a83fb9d"
   },
   {
     "name": "sortable",
-    "status": "imported",
+    "status": "already inside",
     "branch": "master",
     "commit": "990035cbdaea31169179d70a952895188e9f506b"
   },
@@ -16,12 +16,24 @@
     "status": "empty source"
   },
   {
-    "name": "dataloop",
-    "status": "no standalone repository found"
+    "name": "data",
+    "status": "already inside",
+    "folder": "Data"
   },
   {
-    "name": "findtime",
-    "status": "no standalone repository found"
+    "name": "loop",
+    "status": "already inside",
+    "folder": "LOOP"
+  },
+  {
+    "name": "find",
+    "status": "already inside",
+    "folder": "FIND"
+  },
+  {
+    "name": "time",
+    "status": "already inside",
+    "folder": "TIME"
   },
   {
     "name": "call-me-maybe",
@@ -45,6 +57,7 @@
   },
   {
     "name": "node",
-    "status": "no standalone repository found"
+    "status": "already inside",
+    "folder": "."
   }
 ]
