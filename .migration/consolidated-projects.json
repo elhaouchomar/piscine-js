@@ -1,19 +1,22 @@
 [
   {
     "name": "crossword",
-    "status": "already inside",
+    "status": "standalone repository",
     "branch": "master",
-    "commit": "625a5768bea0cf75f741048a76330edb9a83fb9d"
+    "commit": "625a5768bea0cf75f741048a76330edb9a83fb9d",
+    "url": "https://github.com/elhaouchomar/crossword"
   },
   {
     "name": "sortable",
-    "status": "already inside",
+    "status": "standalone repository",
     "branch": "master",
-    "commit": "990035cbdaea31169179d70a952895188e9f506b"
+    "commit": "990035cbdaea31169179d70a952895188e9f506b",
+    "url": "https://github.com/elhaouchomar/sortable"
   },
   {
     "name": "clonernews",
-    "status": "empty source"
+    "status": "standalone repository",
+    "url": "https://github.com/elhaouchomar/clonernews"
   },
   {
     "name": "data",

@@ -1,22 +1,22 @@
 # piscine-js
 
 <!-- consolidated-projects:start -->
-## Projects
+## Exercises and standalone projects
 
-| Project | Folder |
+Original piscine exercises remain in this repository. Standalone projects live in their own repositories with their commit histories.
+
+| Project | Location |
 | --- | --- |
-| crossword | [Open project](./crossword/) |
-| sortable | [Open project](./sortable/) |
-| clonernews | [Open project](./clonernews/) |
-| data | [Open project](./Data/) |
-| loop | [Open project](./LOOP/) |
-| find | [Open project](./FIND/) |
-| time | [Open project](./TIME/) |
-| call-me-maybe | [Open project](./CALL-ME-MAYBE/) |
-| dom | [Open project](./DOM/) |
-| object | [Open project](./OBJECT/) |
-| async | [Open project](./ASYNC/) |
-| node | [Open project](././) |
-
-Imported projects retain their original Git history. Standalone repositories remain available.
+| crossword | [Standalone repository](https://github.com/elhaouchomar/crossword) |
+| sortable | [Standalone repository](https://github.com/elhaouchomar/sortable) |
+| clonernews | [Standalone repository](https://github.com/elhaouchomar/clonernews) |
+| data | [Exercises](./Data/) |
+| loop | [Exercises](./LOOP/) |
+| find | [Exercises](./FIND/) |
+| time | [Exercises](./TIME/) |
+| call-me-maybe | [Exercises](./CALL-ME-MAYBE/) |
+| dom | [Exercises](./DOM/) |
+| object | [Exercises](./OBJECT/) |
+| async | [Exercises](./ASYNC/) |
+| node | [Exercises](././) |
 <!-- consolidated-projects:end -->
